@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-3">
+    <h3>Фильтры</h3>
+    <form method="GET" action="/">
+        <div>
+            <input type="checkbox" name="has_bathroom"> С ванной <br>
+            <input type="checkbox" name="has_balcony"> С балконом <br>
+            <input type="checkbox" name="has_window"> С окном <br>
+            <input type="checkbox" name="is_partition"> Перегородка <br>
+        </div>
+        <div class="mt-4 mb-4">
+            <label>Регион:</label>
+            <select name="region">
+                <option value="">Выберите регион</option>
+                <option value="Dubai Marina">Дубай Марина</option>
+                <option value="Downtown Dubai">Центр Дубая</option>
+                <!-- Add more regions as needed -->
+            </select>
+        </div>
+        <div class="mt-4 mb-4">
+            <label>Цена:</label>
+            <input type="number" name="price" placeholder="Макс. цена">
+        </div>
+        <button type="submit">Применить фильтры</button>
+    </form>
+</div>
+
+<div class="col-md-6">
+    <h3>Комнаты</h3>
+    <div class="row">
+        {% for room in rooms %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ room.image_url }}" class="card-img-top" alt="{{ room.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ room.title }}</h5>
+                    <p class="card-text">Цена: {{ room.price }} AED</p>
+                    <p class="card-text">Рейтинг: {{ room.rating }}</p>
+                    <p class="card-text">Регион: {{ room.region }}</p>
+                    <a href="#" class="btn btn-primary">Посмотреть на карте</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="col-md-3">
+    <h3>Карта</h3>
+    <!-- Placeholder for map -->
+    <div id="map" style="height: 500px; background-color: #e3e3e3;">Карта будет здесь</div>
+</div>
+{% endblock %}

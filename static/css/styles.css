@@ -1,0 +1,19 @@
+body {
+    background-color: #f5f5dc; /* Beige background */
+}
+
+.card {
+    border: 1px solid #8B4513; /* Brown border */
+}
+
+.card-title {
+    color: #2E8B57; /* Green color */
+}
+
+h3 {
+    color: #8B4513; /* Brown color for headings */
+}
+.margin {
+    margin-top: 20px; /* Adjust this value as needed */
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
